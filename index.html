@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-black text-white">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-gray-800 shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-xl font-bold">My Portfolio</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="hover:text-teal-400">Home</a></li>
+        <li><a href="#projects" class="hover:text-teal-400">Projects</a></li>
+        <li><a href="#about" class="hover:text-teal-400">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="h-screen flex items-center justify-center bg-black">
+    <div class="text-center">
+      <h2 class="text-4xl font-bold mb-4">Welcome to My Portfolio</h2>
+      <p class="text-gray-400 text-lg">Explore my projects and get to know me.</p>
+    </div>
+  </section>
+
+  <!-- Projects Section with Carousel -->
+  <section id="projects" class="min-h-screen flex flex-col items-center justify-center bg-black py-16">
+    <h2 class="text-3xl font-bold mb-8">Projects</h2>
+    <div class="relative w-full max-w-5xl overflow-hidden">
+      <!-- Carousel Container -->
+      <div id="carousel" class="flex transition-transform duration-500">
+        <!-- Project 1 -->
+        <div class="flex-shrink-0 w-full px-4">
+          <img src="https://via.placeholder.com/800x400" alt="Project 1" class="rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mt-4 text-center">Project 1</h3>
+        </div>
+        <!-- Project 2 -->
+        <div class="flex-shrink-0 w-full px-4">
+          <img src="https://via.placeholder.com/800x400" alt="Project 2" class="rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mt-4 text-center">Project 2</h3>
+        </div>
+        <!-- Project 3 -->
+        <div class="flex-shrink-0 w-full px-4">
+          <img src="https://via.placeholder.com/800x400" alt="Project 3" class="rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mt-4 text-center">Project 3</h3>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-6">
+        <button id="prev" class="bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-700">
+          &#9664;
+        </button>
+        <button id="next" class="bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-700">
+          &#9654;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="h-screen flex items-center justify-center bg-black">
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <!-- Text -->
+      <div>
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          I'm a digital artist who loves creating minimalistic and modern designs. My passion for simplicity drives my
+          work, and I'm constantly exploring new ways to innovate and express ideas through visuals.
+        </p>
+      </div>
+      <!-- Image -->
+      <div>
+        <img src="https://via.placeholder.com/400" alt="About Me" class="rounded-lg shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-gray-800 text-gray-400 text-center">
+    &copy; 2024 My Portfolio. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for Carousel -->
+  <script>
+    const carousel = document.getElementById('carousel');
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+
+    let currentSlide = 0;
+
+    nextButton.addEventListener('click', () => {
+      const slides = carousel.children.length;
+      currentSlide = (currentSlide + 1) % slides;
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    });
+
+    prevButton.addEventListener('click', () => {
+      const slides = carousel.children.length;
+      currentSlide = (currentSlide - 1 + slides) % slides;
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    });
+  </script>
+</body>
+
+</html>
